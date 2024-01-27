@@ -1,7 +1,8 @@
 import '@/app/ui/global.css';
 import { inter } from '@/app/ui/fonts';
 import { Metadata } from 'next';
- 
+import { Analytics } from '@vercel/analytics/react';
+
 export const metadata: Metadata = {
   title: 'Acme Dashboard',
   description: 'The official Next.js Course Dashboard, built with App Router.',
@@ -23,7 +24,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta property="og:image:width" content="<generated>" />
         <meta property="og:image:height" content="<generated>" />
       </head>
-      <body className={`${inter.className} antialiased`}> {children} </body>
+      <body className={`${inter.className} antialiased`}> 
+        {children}
+        <Analytics/> 
+      </body>
     </html>
   );
 }
